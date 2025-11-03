@@ -1,0 +1,9 @@
+name: docker-vscode
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - conda-lock
+prefix: /Users/skysheng/miniforge3/envs/docker-vscode
