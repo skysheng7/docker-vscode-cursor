@@ -6,4 +6,10 @@ dependencies:
   - numpy
   - pandas
   - conda-lock
+platforms:
+  - linux-aarch64
+  - linux-64
+  - osx-arm64
+  - osx-64
+  - win-64
 prefix: /Users/skysheng/miniforge3/envs/docker-vscode

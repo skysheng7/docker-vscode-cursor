@@ -1,11 +1,10 @@
 # build on top of template of minimal notebook
-FROM mcr.microsoft.com/devcontainers/base:ubuntu
+FROM mcr.microsoft.com/devcontainers/miniconda:3
 
 # copy all conda environment dependencies
 COPY conda-lock.yml /tmp/conda-lock.yml
 
-# conda install all the other packages
-RUN mamba update --quiet --file /tmp/conda-lock.yml \
-    && mamba clean --all -y -f \
-    && fix-permissions "${CONDA_DIR}" \
-    && fix-permissions "/home/${NB_USER}"
+# Install conda-lock and create environment from lock file
+RUN conda install -n base -c conda-forge conda-lock -y \
+    && conda-lock install --name condalock-env /tmp/conda-lock.yml \
+    && conda clean --all -y -f

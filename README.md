@@ -31,12 +31,23 @@ Below are the steps that you need to take to build and run a docker container us
             "dockerfile": "Dockerfile"
         }
 ```
-4. Move your `Dockerfile` and `conda-lock.yml` file to be inside of `.devcontainer` folder.
-5. In your left navigation bar, you should see an icon that looks like a screen "Remote Explorer" (see image below), click on it to open a left side bar
+4. Add the following chunk of command to your `environment.yml` file to specify conda lock to generate a lock file for `linux-aarch64` operating system
+```
+platforms:
+  - linux-aarch64
+```
+
+5. run the following command in terminal to generate conda-lock file
+
+```
+conda-lock lock --file environment.yml
+```
+6. Move your `Dockerfile` and newly generated `conda-lock.yml` file to be inside of `.devcontainer` folder.
+7. In your left navigation bar, you should see an icon that looks like a screen "Remote Explorer" (see image below), click on it to open a left side bar
 ![sidebar](image/sidebar.png)
-6. Click on the button "Open Folder in Container"
+8. Click on the button "Open Folder in Container"
 ![container_tab](image/container_tab.png)
-7. Select your project folder
+9. Select your project folder to open
 
 
 ## Reference
