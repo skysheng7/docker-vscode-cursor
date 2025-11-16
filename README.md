@@ -1,63 +1,76 @@
 # docker-vscode
 
-## preprequisites
+## Prerequisites
 
-This tutorial assumes that you have already created a conda-lock file that includes Linux-64 operating system for your project. It also assumes that you have installed docker, installed VS code, are familiar with conda, conda-lock, and docker container.
+This tutorial assumes you have:
+- Created a `environment.yml` and `conda-lock.yml` for your project
+- Installed Docker and VS Code
+- Familiarity with conda, conda-lock, and Docker containers
 
-If you need to review those concepts mentioned above, please refer to :
+If you need to review these concepts, please refer to:
 * [conda-lock](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/lectures/090-conda-lock.html)
 * [Introduction to containerization](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/lectures/100-containerization-1.html)
 * [Using and running containers](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/lectures/110-containerization-2.html)
 * [Customizing and building containers](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/lectures/120-containerization-3.html)
 
+## How to Use VS Code Dev Containers
 
-## How to use VSCode docker container?
+VS Code dev containers work differently from JupyterLab or RStudio containers that you used before. Instead of accessing a URL through a port, VS Code containers run directly within your local VS Code IDE using the "Dev Containers" extension, or on GitHub Codespaces.
 
-VSCode docker container is different from how you used jupyterLab container, R Studio container before (for those containers, you can open a URL hosted on your local computer and being connected through a port). VSCode can only work inside of your local VSCode IDE installed locally using the "Dev Containers" extension; or on GitHub Codespaces.
+Follow these steps to build and run a Docker container using a VS Code image:
 
-Below are the steps that you need to take to build and run a docker container using VScode image.
-1. start VS code, open your project folder
-2. install "Dev Containers" VS code extension (the first returned result shown in the image below)
+1. Start VS Code and open your project folder.
+
+2. Install the "Dev Containers" VS Code extension (the first result shown in the image below).
 ![extension](image/extension.png)
-3. Create devcontainer.json file 
-* create a file called `devcontainer.json` under a folder called `.devcontainer` in the root directory. 
-* VS code use `devcontainer.json` to configure and customize the container
-* You can read more about `devcontainer.json` [here](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
-* in this tutorial, we use the following command to instruct the VS code container to build using our existing `Dockerfile`: 
 
-```
-    "build": {
-            // Path is relative to the devcontainer.json file.
-            "dockerfile": "Dockerfile"
-        }
-```
-4. Add the following chunk of command to your `environment.yml` file to specify conda lock to generate a lock file for `linux-aarch64` operating system
-```
-platforms:
-  - linux-aarch64
+3. Create a `devcontainer.json` file:
+   - You can copy this folder `.devcontainer` in this repository directoy, or you can create a folder called `.devcontainer` in your project's root directory
+   - Inside this folder, create a file called `devcontainer.json`
+   - VS Code uses this file to configure and customize the container
+   - For more information, see the [VS Code documentation](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
+   - In this tutorial, we use the following command to build the container using your existing `Dockerfile`:
+```json
+   "build": {
+       // Path is relative to the devcontainer.json file.
+       "dockerfile": "Dockerfile"
+   }
 ```
 
-5. run the following command in terminal to generate conda-lock file
+4. We use following command in your `environment.yml` file to build conda-lock file for various operating systems, including `linux-aarch64`:
+```yaml
+   platforms:
+    - linux-aarch64
+    - linux-64
+    - osx-arm64
+    - osx-64
+    - win-64
+```
 
+5. Generate the conda-lock file by running this command in your terminal:
+```bash
+   conda-lock lock --file environment.yml
 ```
-conda-lock lock --file environment.yml
-```
-6. Move your `Dockerfile` and newly generated `conda-lock.yml` file to be inside of `.devcontainer` folder.
-7. In your left navigation bar, you should see an icon that looks like a screen "Remote Explorer" (see image below), click on it to open a left side bar
+
+6. Move your `Dockerfile` and the newly generated `conda-lock.yml` file into the `.devcontainer` folder.
+
+7. In the VS Code left navigation bar, click the "Remote Explorer" icon (see image below) to open the sidebar.
 ![sidebar](image/sidebar.png)
-8. Click on the button "Open Folder in Container"
+
+8. Click "Open Folder in Container".
 ![container_tab](image/container_tab.png)
-9. Select your project folder to open
-10. Since this is the first time you build the container, it will take a while to run. But after the first build, it should not take too long to run your container afterwords.
+
+9. Select your current project folder to open.
+
+10. The initial build will take some time. Subsequent builds will be faster.
 ![load](image/load_container.png)
-11. If it was built successfully, you will be able to see this on the bottom left corner saying "Dev Container: Python 3 @ desktop-linux". It is called "Python 3" because we named the container "Python 3" in the `devcontainer.json` file. You can change this name to whatever name you prefer.
+
+11. If the build succeeds, you will see "Dev Container: Python 3 @ desktop-linux" in the bottom left corner. The name "Python 3" comes from the `devcontainer.json` file and can be changed to your preference.
 ![success](image/sign.png)
-12. 
 
+12. This `Dockerfile` is configured to activate the conda environment automatically. You should see `(docker-vscode)` in your terminal.
 
-
-## Reference
-* [vscode image](https://hub.docker.com/r/microsoft/vscode-devcontainers)
+## References
+* [VS Code image](https://hub.docker.com/r/microsoft/vscode-devcontainers)
 * [Create Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
 * [Using Images, Dockerfiles, and Docker Compose](https://containers.dev/guide/dockerfile)
-* 

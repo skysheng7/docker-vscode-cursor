@@ -6,10 +6,10 @@ COPY conda-lock.yml /tmp/conda-lock.yml
 
 # Install conda-lock and create environment from lock file
 RUN conda install -n base -c conda-forge conda-lock -y \
-    && conda-lock install --name condalock-env /tmp/conda-lock.yml \
+    && conda-lock install --name docker-vscode /tmp/conda-lock.yml \
     && conda clean --all -y -f
 
 # Switch to vscode user and set up conda activation
 USER vscode
 RUN conda init bash \
-    && echo "conda activate condalock-env" >> ~/.bashrc
+    && echo "conda activate docker-vscode" >> ~/.bashrc
