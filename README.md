@@ -1,10 +1,12 @@
 # docker-vscode
 
+This tutorial guides you through using VS Code Dev Containers within VS Code or Cursor. The setup process is virtually identical for both editors, so you can follow these instructions regardless of which one you prefer.
+
 ## Prerequisites
 
 This tutorial assumes you have:
 - Created a `environment.yml` and `conda-lock.yml` for your project
-- Installed Docker and VS Code
+- Installed Docker, VS Code or Cursor
 - Familiarity with conda, conda-lock, and Docker containers
 
 If you need to review these concepts, please refer to:
@@ -23,6 +25,9 @@ Follow these steps to build and run a Docker container using a VS Code image:
 
 2. Install the "Dev Containers" VS Code extension (the first result shown in the image below).
 ![extension](image/extension.png)
+
+Or if you are using Cursor, the "Dev Containers" Cursor extension looks like this: 
+![cursor](image/cursor.png)
 
 3. Create a `devcontainer.json` file:
    - You can copy this folder `.devcontainer` in this repository directoy, or you can create a folder called `.devcontainer` in your project's root directory
