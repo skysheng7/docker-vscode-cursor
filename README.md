@@ -69,6 +69,7 @@ Follow these steps to build and run a Docker container using a VS Code image:
 ![success](image/sign.png)
 
 12. This `Dockerfile` is configured to activate the conda environment automatically. You should see `(docker-vscode)` in your terminal.
+![terminal](image/terminal.png)
 
 ## References
 * [VS Code image](https://hub.docker.com/r/microsoft/vscode-devcontainers)
