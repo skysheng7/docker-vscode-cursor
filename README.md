@@ -17,9 +17,20 @@ VSCode docker container is different from how you used jupyterLab container, R S
 
 Below are the steps that you need to take to build and run a docker container using VScode image.
 1. start VS code, open your project folder
-2. install "Dev Containers" VS code extension
+2. install "Dev Containers" VS code extension (the first returned result shown in the image below)
 ![extension](image/extension.png)
-3. 
+3. Create devcontainer.json file 
+* create a file called `devcontainer.json` under a folder called `.devcontainer` in the root directory. 
+* VS code use `devcontainer.json` to configure and customize the container
+* You can read more about `devcontainer.json` [here](https://code.visualstudio.com/docs/devcontainers/create-dev-container)
+* in this tutorial, we use the following command to instruct the VS code container to build using our existing `Dockerfile`: 
+
+```
+    "build": {
+            // Path is relative to the devcontainer.json file.
+            "dockerfile": "Dockerfile"
+        }
+```
 
 ## Reference
 * [vscode image](https://hub.docker.com/r/microsoft/vscode-devcontainers)
