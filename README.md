@@ -31,11 +31,12 @@ Below are the steps that you need to take to build and run a docker container us
             "dockerfile": "Dockerfile"
         }
 ```
-4. Move your `Dockerfile` to be inside of `.devcontainer` folder.
+4. Move your `Dockerfile` and `conda-lock.yml` file to be inside of `.devcontainer` folder.
 5. In your left navigation bar, you should see an icon that looks like a screen "Remote Explorer" (see image below), click on it to open a left side bar
 ![sidebar](image/sidebar.png)
 6. Click on the button "Open Folder in Container"
 ![container_tab](image/container_tab.png)
+7. Select your project folder
 
 
 ## Reference
