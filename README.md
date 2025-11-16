@@ -48,6 +48,12 @@ conda-lock lock --file environment.yml
 8. Click on the button "Open Folder in Container"
 ![container_tab](image/container_tab.png)
 9. Select your project folder to open
+10. Since this is the first time you build the container, it will take a while to run. But after the first build, it should not take too long to run your container afterwords.
+![load](image/load_container.png)
+11. If it was built successfully, you will be able to see this on the bottom left corner saying "Dev Container: Python 3 @ desktop-linux". It is called "Python 3" because we named the container "Python 3" in the `devcontainer.json` file. You can change this name to whatever name you prefer.
+![success](image/sign.png)
+12. 
+
 
 
 ## Reference

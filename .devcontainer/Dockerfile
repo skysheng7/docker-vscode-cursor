@@ -8,3 +8,6 @@ COPY conda-lock.yml /tmp/conda-lock.yml
 RUN conda install -n base -c conda-forge conda-lock -y \
     && conda-lock install --name condalock-env /tmp/conda-lock.yml \
     && conda clean --all -y -f
+
+# Activate the condalock-env environment by default inside of your container
+RUN echo "conda activate condalock-env" >> ~/.bashrc
