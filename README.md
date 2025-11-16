@@ -75,6 +75,26 @@ Follow these steps to build and run a Docker container using a VS Code image:
 
 For simple data analysis projects, using `Dockerfile` and `devcontainer.json` together is sufficient. However, if your project requires multiple containers, you'll need to use `docker-compose.yml`.
 
+This tutorial includes both configuration options in the `.devcontainer` folder for flexibility. You can choose to build your container using either the `Dockerfile` directly or through `docker-compose.yml`, depending on your project's needs.
+
+To switch between the two approaches, simply comment/uncomment the relevant sections in `devcontainer.json`:
+
+```json
+{
+	"name": "Python 3",
+	// uncomment below to use Dockerfile
+	//"build": {
+        // Path is relative to the devcontainer.json file.
+        //"dockerfile": "Dockerfile"
+    //},
+
+	// uncomment below to use Docker Compose file
+	"dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}
+```
+
 ## References
 * [VS Code image](https://hub.docker.com/r/microsoft/vscode-devcontainers)
 * [Create Dev Container](https://code.visualstudio.com/docs/devcontainers/create-dev-container)

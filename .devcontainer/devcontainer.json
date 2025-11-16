@@ -2,14 +2,19 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "Python 3",
-	// use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// uncomment below to use Dockerfile
 	"build": {
         // Path is relative to the devcontainer.json file.
         "dockerfile": "Dockerfile"
     },
 
+	// uncomment below to use Docker Compose file
+	//"dockerComposeFile": "docker-compose.yml",
+    //"service": "devcontainer",
+    //"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+
 	// activate the conda environment after the container is built
-	// "postCreateCommand": "conda init bash && echo 'conda activate condalock-env' >> ~/.bashrc"
+	// "postCreateCommand": ""
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
