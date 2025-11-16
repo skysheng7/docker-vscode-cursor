@@ -13,7 +13,7 @@ If you need to review these concepts, please refer to:
 * [Using and running containers](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/lectures/110-containerization-2.html)
 * [Customizing and building containers](https://ubc-dsci.github.io/reproducible-and-trustworthy-workflows-for-data-science/lectures/120-containerization-3.html)
 
-## How to Use VS Code Dev Containers
+## How to Use VS Code Dev Containers with `Dockerfile`
 
 VS Code dev containers work differently from JupyterLab or RStudio containers that you used before. Instead of accessing a URL through a port, VS Code containers run directly within your local VS Code IDE using the "Dev Containers" extension, or on GitHub Codespaces.
 
@@ -70,6 +70,10 @@ Follow these steps to build and run a Docker container using a VS Code image:
 
 12. This `Dockerfile` is configured to activate the conda environment automatically. You should see `(docker-vscode)` in your terminal.
 ![terminal](image/terminal.png)
+
+## How to Use VS Code Dev Containers with `docker-compose.yml`
+
+For simple data analysis projects, using `Dockerfile` and `devcontainer.json` together is sufficient. However, if your project requires multiple containers, you'll need to use `docker-compose.yml`.
 
 ## References
 * [VS Code image](https://hub.docker.com/r/microsoft/vscode-devcontainers)
