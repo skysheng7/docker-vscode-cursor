@@ -6,7 +6,10 @@
 	"build": {
         // Path is relative to the devcontainer.json file.
         "dockerfile": "Dockerfile"
-    }
+    },
+
+	// activate the conda environment after the container is built
+	// "postCreateCommand": "conda init bash && echo 'conda activate condalock-env' >> ~/.bashrc"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
