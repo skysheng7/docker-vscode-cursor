@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - numpy=
+  - numpy
   - pandas=2.3.1
   - conda-lock
 platforms:
