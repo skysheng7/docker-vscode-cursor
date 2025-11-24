@@ -1,4 +1,4 @@
-# docker-vscode
+# How to use docker image in VScode and Cursor?
 
 This tutorial guides you through using VS Code Dev Containers within VS Code or Cursor. The setup process is virtually identical for both editors, so you can follow these instructions regardless of which one you prefer.
 
